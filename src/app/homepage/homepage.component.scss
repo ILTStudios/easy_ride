@@ -1,0 +1,55 @@
+.homepage{
+    width: 430px; height: 932px;
+    background-image: url(../../assets/homepage_background.jpg);
+    background-size: cover;
+
+    display: flex; flex-direction: column; 
+    align-items: center; 
+
+
+    p{
+        padding: 0; margin: 0; color: white;
+    }
+
+    .welcome{
+        margin: 128px 0 0 0;
+        font-family: Montserrat; font-size: 24px; font-weight: 500;
+    }
+
+    .header{
+        margin: 19px 0 0 0;
+        font-family: Poppins; font-size: 48px; font-weight: 600;
+    }
+
+    .content{
+        margin: 19px 0 0 0;
+        width: 316px;
+        color: #B8B8B8;
+        text-align: center;
+
+        font-family: Montserrat; font-size: 14px; font-weight: 400;
+    }
+
+    .gmail{
+        margin: 421px 0 0 0;
+        border-radius: 58px;
+        background: #F7B32B;
+        padding: 15px 79px;
+
+        color: #000;
+        font-family: Montserrat; font-size: 12px; font-weight: 500;
+    }
+
+    .email{
+        margin: 20px 0 0 0;
+        padding: 15px 88px;
+        border: 2px solid #FFF; border-radius: 58px;
+
+        font-family: Montserrat; font-size: 12px; font-weight: 500;
+    }
+
+    .login{
+        margin: 24px 0 0 0;
+        font-family: Montserrat; font-size: 12px; font-weight: 500;
+    }
+}
