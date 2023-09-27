@@ -59,3 +59,7 @@ express_app.post('/signin', function (req, res) {
   console.log(req.body);
   res.sendFile(__dirname + '/src/app/sign_in/sign-in.component.html')
 });
+
+express_app.post('/login', function (req, res) {
+  console.log('User Logged In!');
+})
