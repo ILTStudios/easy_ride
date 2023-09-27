@@ -24,11 +24,11 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://iltstudios:iltstudios@fjord.kqqq4ms.mongodb.net/easy_ride?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, {
-  // serverApi: {
-  //   version: ServerApiVersion.v1,
-  //   strict: true,
-  //   deprecationErrors: true,
-  // }
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
 });
 async function run() {
   try {
@@ -46,34 +46,6 @@ async function run() {
 }
 run().catch(console.dir);
 
-
-// const { Schema } = mongoose;
-// mongoose.Promise = global.Promise;
-
-// mongoose.connect('mongodb+srv://iltstudios:iltstudios@fjord.kqqq4ms.mongodb.net/')
-// var db = mongoose.connection;
-
-// db.on('error', () => console.log('Mongoose had trouble connecting'));
-// db.once('open', () => console.log('Connection Successful'));
-
-// var user_schema = new Schema({
-//     email: String,
-//     password: String,
-// });
-
-// var easyride = mongoose.models.user || mongoose.model('users', user_schema);
-// easyride.find({}, (err, data) => {
-//     if(err){console.log(err)}
-//     else{
-//         console.log(data);
-//     }
-// });
-// express_app.get('/', (req, res) => {
-//     console.log('beans')
-//     easyride.find({}, (err, data) => {
-//         if(err){console.log(err)}
-//         else{
-//             console.log(data);
-//         }
-//     });
-// });
+express_app.get('/signin', function (req, res) {
+  console.log('bitch');
+});
