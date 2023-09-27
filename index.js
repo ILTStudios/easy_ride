@@ -1,7 +1,7 @@
 //express server
 const express = require('express');
 const express_app = express();
-
+const path = require('path');
 const body_parser = require('body-parser');
 
 //set express settings
@@ -14,6 +14,11 @@ express_app.use(body_parser.json());
 express_app.use(body_parser.urlencoded({
     extended: true,
 }));
+express_app.use(express.static(__dirname + '/public'));
+express_app.use(express.urlencoded({
+  extended: true,
+}));
+
 
 express_app.listen(4000, () => {
     console.log("Server is Listening to Port: 4000");
@@ -46,6 +51,11 @@ async function run() {
 }
 run().catch(console.dir);
 
-express_app.get('/signin', function (req, res) {
-  console.log('bitch');
+express_app.get('/', function(req, res) {
+  console.log('');
+});
+
+express_app.post('/signin', function (req, res) {
+  console.log(req.body);
+  res.sendFile(__dirname + '/src/app/sign_in/sign-in.component.html')
 });
