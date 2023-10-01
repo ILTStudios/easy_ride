@@ -7,11 +7,12 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SignInComponent } from './sign_in/sign-in.component';
 import { LogInComponent } from './log_in/log-in.component';
+import { ExplorePageComponent } from './explore_page/explore-page.component';
 
 @NgModule({
   declarations: [
     AppComponent
-  , HomepageComponent, SignInComponent, SignInComponent, LogInComponent],
+  , HomepageComponent, SignInComponent, SignInComponent, LogInComponent, ExplorePageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
