@@ -14,7 +14,7 @@ express_app.use(body_parser.json());
 express_app.use(body_parser.urlencoded({
     extended: true,
 }));
-express_app.use(express.static(__dirname + '/public'));
+express_app.use(express.static(__dirname + '/src/app'));
 express_app.use(express.urlencoded({
   extended: true,
 }));
@@ -35,13 +35,15 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+
+var users; 
 async function run() {
   try {
     await client.connect();
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
     
-    var users = await client.db().collection('users').find().toArray();
+    users = await client.db().collection('users').find().toArray();
     console.log(users);
 
   } finally {
@@ -57,9 +59,25 @@ express_app.get('/', function(req, res) {
 
 express_app.post('/signin', function (req, res) {
   console.log(req.body);
-  res.sendFile(__dirname + '/src/app/sign_in/sign-in.component.html')
+  res.sendFile(__dirname + '/src/app/sign_in/sign-in.component.html');
 });
 
 express_app.post('/login', function (req, res) {
-  console.log('User Logged In!');
-})
+  var email = req.body.email;
+  var pass = req.body.password;
+  var authorized = false;
+
+  users.forEach(element => {
+    if(element.email == email && element.password == pass){
+      authorized = true;
+    }
+  });
+  
+  if(authorized == true){
+    res.sendFile(__dirname + '/src/app/explore_page/explore-page.component.html');
+  }else{
+    console.log('entry denied');
+  }
+  
+  res.sendFile(__dirname + '/src/app/log_in/log-in.component.html');
+});
