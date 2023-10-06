@@ -11,6 +11,6 @@ export class ServerService {
   ) { }
 
   api_call(){
-    return this.http.get("http://localhost:4000/login")
+    return this.http.get(window.location.href);
   }
 }

@@ -84,7 +84,7 @@ express_app.post('/signin', function (req, res) {
     insert_doc(new_user);
   }
 
-  res.redirect('http://localhost:4200');
+  res.redirect('http://localhost:4200/explore');
 });
 
 express_app.post('/login', function (req, res) {
@@ -97,11 +97,11 @@ express_app.post('/login', function (req, res) {
       authorized = true;
     }
   });
-  
+
   if(authorized == true){
-    res.redirect('http://localhost:4200');
+    res.redirect('http://localhost:4200/explore');
   }else{
     console.log('entry denied');
+    res.redirect('http://localhost:4200/login');
   }
-  res.redirect('http://localhost:4200');
 });
