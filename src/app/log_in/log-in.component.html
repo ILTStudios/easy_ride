@@ -7,14 +7,14 @@
             <p routerLink="/signin" class="register_link">Register</p>
         </div>
 
-        <form action="http://localhost:4000/login" method="post">
+        <form name="login" (submit)="submit('login')">
             <div class="input">
                 <p class="header">Email</p>
-                <input name="email" type="text" placeholder="Enter your Email">
+                <input name="email" type="text" placeholder="Enter your Email" ng-model="email" required>
             </div>
             <div class="input">
                 <p class="header">Password</p>
-                <input name="password" type="text" placeholder="Enter your Password">
+                <input name="password" type="text" placeholder="Enter your Password" ng-model="password" required>
             </div>
             <p class="forgot-pass">Forgot Password?</p>
 

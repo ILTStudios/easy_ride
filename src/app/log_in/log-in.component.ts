@@ -11,9 +11,14 @@ export class LogInComponent {
   constructor(private api:ServerService){
 
   }
+
+  submit(data:any){
+    console.log(data);
+  }
+
   ngOnInit(){
     this.api.api_call().subscribe((data) => {
       console.log(data);
-    })
+    });
   }
 }
