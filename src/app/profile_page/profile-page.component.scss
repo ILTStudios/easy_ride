@@ -37,4 +37,208 @@
             width: 128.706px; height: 130px; flex-shrink: 0;
         }
     }
+
+    .general_setting{
+        display: flex; flex-direction: column;
+        justify-content: center; align-items: center;
+        .change_filter{
+            width: 370px; height: 48px; flex-shrink: 0;
+            position: relative;
+    
+            margin: 66px 0 0 0;
+            
+            border-radius: 11px;
+            background: #002332;
+    
+            display: flex; align-items: center;
+            justify-content: space-around;
+    
+            .selection{
+                width: 185px; height: 48px; flex-shrink: 0;
+                position: absolute;
+                top: 0; left: 0;
+    
+                border-radius: 11px;
+                background-color: #F7B32B;
+                z-index: 1;
+            }
+    
+            p{
+                position: inherit;
+                margin: 0;
+                color: #FFF;
+                font-family: 'Poppins'; font-size: 14px; font-weight: 400;
+                
+                z-index: 2;
+            }
+        }
+    
+        .general_information{
+            width: 370px; height: 191px; flex-shrink: 0;
+            margin: 55px 0 0 0;
+            border-radius: 16px; background: #002332;
+    
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+    
+            >div{
+                width: 328px; height: 34px; flex-shrink: 0;
+                display: flex; align-items: center;
+                justify-content: space-between;
+    
+                margin: 20px 0 0 0;
+    
+                >div{
+                    display: inline-flex; flex-direction: column; 
+                    justify-content: center; align-items: flex-start;
+                    
+                    gap: 1px;
+    
+                    .section{
+                        color: #B8B8B8;
+                        font-family: 'Montserrat';
+                        font-size: 10px; font-weight: 300;
+                        margin: 0;
+                    }
+    
+                    .content{
+                        color: #FFF;
+                        font-family: 'Poppins';
+                        font-size: 14px; font-weight: 400;
+                        margin: 0;
+                    }
+                }
+    
+                .edit{
+                    display: inline-flex;
+                    justify-content: center; align-items: center;
+    
+                    height: 34px;
+                    padding: 3px 29px; gap: 18px;
+                    flex-shrink: 0;
+    
+                    border-radius: 8px; background: #00141D;
+    
+                    color: #FFF;
+                    font-family: 'Poppins';
+                    font-size: 12px; font-weight: 400;
+                    margin: 0;
+                }
+            }
+        }
+    
+        .pro{
+            margin: 37px 0 0 0;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+    
+            .details{
+                width: 370px; height: 80px; flex-shrink: 0;
+                
+                border-radius: 16px 16px 0 0; 
+                background: #002332;
+    
+                display: flex; align-items: center;
+                justify-content: space-around;
+    
+                .content{
+                    display: flex; flex-direction: column;
+                    justify-content: center;
+    
+                    p.sub{
+                        color: #B8B8B8;
+                        font-family: 'Montserrat';
+                        font-size: 10px; font-weight: 300;
+                        margin: 0;
+                    }
+                    p.type{
+                        color: #FFF;
+                        font-family: 'Poppins';
+                        font-size: 14px; font-weight: 400;
+                        margin: 0;
+                    }
+                }
+    
+                p.upgrade{
+                    display: inline-flex; justify-content: center; align-items: center;
+                    height: 34px;
+                    padding: 3px 29px;
+                    gap: 18px;
+                    flex-shrink: 0;
+    
+                    border-radius: 8px; 
+                    background: linear-gradient(257deg, #FF833E 0%, #FA6656 43.71%, #EA04A9 91.22%);
+    
+                    color: #FFF;
+                    font-family: 'Poppins';
+                    font-size: 12px; font-weight: 400;
+                    margin: 0;
+                }
+            }
+    
+            .see_benefits{
+                width: 370px; height: 51px; flex-shrink: 0;
+    
+                border-radius: 0px 0px 16px 16px; 
+                background: #00405D;
+    
+                display: flex; align-items: center; justify-content: center;
+    
+                p{
+                    color: #FFF;
+                    font-family: 'Poppins';
+                    font-size: 12px; font-weight: 400;
+                    margin: 0;
+                }
+            }
+        }
+    
+        p.sign_out{
+            display: inline-flex; justify-content: center; align-items: center;
+            height: 45px;
+    
+            margin: 60px 0 0 0;
+            
+            padding: 8px 40px;
+            gap: 20px;
+            flex-shrink: 0;
+            
+            border-radius: 8px; 
+            background: #002332;
+    
+            color: #FFF;
+            font-family: 'Poppins';
+            font-size: 16px; font-weight: 400;
+        }
+    }
+
+    .main_setting{
+        
+    }
+
+    .navbar{
+        width: 430px;
+        height: 80px;
+        flex-shrink: 0;
+        border-radius: 30px 30px 0px 0px;
+        background: #002332;
+        display: flex; align-self: center; justify-content: center;;
+    
+        margin: 45px 0 0 0;
+        
+        .logos{
+            display: flex; justify-content: center; align-items: center;
+            width: 430px;
+            gap: 60px;
+    
+            svg{
+                width: 20px; height: 20px;
+                transition: all .2s ease-in-out;
+                &:hover{
+                    stroke: #F7B32B;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }
