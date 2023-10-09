@@ -6,6 +6,8 @@ import { SignInComponent } from './sign_in/sign-in.component';
 import { ExplorePageComponent } from './explore_page/explore-page.component';
 
 import { AdminGuard } from './admin.guard';
+import { StartingPageComponent } from './starting_page/starting-page.component';
+import { ProfilePageComponent } from './profile_page/profile-page.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent},
@@ -15,6 +17,8 @@ const routes: Routes = [
     component: ExplorePageComponent, 
     canActivate:[AdminGuard]
   },
+  { path: 'starting', component: StartingPageComponent},
+  { path: 'profile', component: ProfilePageComponent},
 ];
 
 @NgModule({

@@ -9,11 +9,13 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SignInComponent } from './sign_in/sign-in.component';
 import { LogInComponent } from './log_in/log-in.component';
 import { ExplorePageComponent } from './explore_page/explore-page.component';
+import { StartingPageComponent } from './starting_page/starting-page.component';
+import { ProfilePageComponent } from './profile_page/profile-page.component';
 
 @NgModule({
   declarations: [
     AppComponent
-  , HomepageComponent, SignInComponent, SignInComponent, LogInComponent, ExplorePageComponent],
+  , HomepageComponent, SignInComponent, SignInComponent, LogInComponent, ExplorePageComponent, StartingPageComponent, ProfilePageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
