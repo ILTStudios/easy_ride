@@ -38,40 +38,60 @@
         }
     }
 
-    .general_setting{
-        display: flex; flex-direction: column;
-        justify-content: center; align-items: center;
-        .change_filter{
-            width: 370px; height: 48px; flex-shrink: 0;
-            position: relative;
-    
-            margin: 66px 0 0 0;
-            
+    .change_filter{
+        width: 370px; height: 48px; flex-shrink: 0;
+        position: relative;
+
+        margin: 66px 0 0 0;
+        
+        border-radius: 11px;
+        background: #002332;
+
+        display: flex; align-items: center;
+        justify-content: space-around;
+
+        .selection{
+            width: 185px; height: 48px; flex-shrink: 0;
+            position: absolute;
+            top: 0;
+
             border-radius: 11px;
-            background: #002332;
-    
-            display: flex; align-items: center;
-            justify-content: space-around;
-    
-            .selection{
-                width: 185px; height: 48px; flex-shrink: 0;
-                position: absolute;
-                top: 0; left: 0;
-    
-                border-radius: 11px;
-                background-color: #F7B32B;
-                z-index: 1;
-            }
-    
-            p{
-                position: inherit;
-                margin: 0;
-                color: #FFF;
-                font-family: 'Poppins'; font-size: 14px; font-weight: 400;
-                
-                z-index: 2;
+            background-color: #F7B32B;
+            z-index: 1;
+            transition: all .2s ease-in-out;
+        }
+        .selection.general{
+            left: 0;
+        }
+        .selection.main{
+            right: 0;
+        }
+
+        p{
+            position: inherit;
+            margin: 0;
+            color: #FFF;
+            font-family: 'Poppins'; font-size: 14px; font-weight: 400;
+            
+            z-index: 2;
+
+            transition: all .2s ease-in-out;
+
+            &:hover{
+                cursor: pointer;
+                color: #F7B32B;
             }
         }
+    }
+    
+    .general_setting.on,
+    .main_setting.on{
+        display: flex;
+    }
+
+    .general_setting{
+        display: none; flex-direction: column;
+        justify-content: center; align-items: center;
     
         .general_information{
             width: 370px; height: 191px; flex-shrink: 0;
@@ -213,7 +233,84 @@
     }
 
     .main_setting{
-        
+        display: none; flex-direction: column;
+        justify-content: center; align-items: center;
+
+        .search_bar{
+            width: 379px; height: 57px; flex-shrink: 0;
+
+            border-radius: 7px;
+            background-color: #002332;
+
+            margin: 46px 0 0 0;
+
+            display: flex; align-items: center;
+            flex-direction: row;
+            justify-content: space-around;
+
+            svg{
+                width: 20px; height: 20px; flex-shrink: 0;
+            }
+
+            p{
+                margin: 0 220px 0 0;
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 14px; font-weight: 300;
+            }
+        }
+
+        >div{
+            width: 350px;
+            display: flex; flex-direction: column;
+
+            .line{
+                width: 280px; height: 1px;
+                background-color: #fff;
+
+                margin: 0 0 0 50px;
+            }
+
+            .header{
+                color: #B8B8B8;
+                font-family: 'Poppins';
+                font-size: 12px; font-weight: 400;
+            }
+
+            .setting{
+                display: flex; align-items: center;
+                justify-content: left;
+
+                padding: 10px;
+                
+                svg{
+                    width: 24px; height: 24px; flex-shrink: 0;
+                }
+                p{
+                    color: #FFF;
+                    font-family: 'Montserrat';
+                    font-size: 14px; font-weight: 400;
+
+                    margin: 0 0 0 13px;
+                }
+            }
+        }
+
+        .preferences{
+            margin: 0 0 12px 0;
+            >div{
+                p.option{
+                    margin: 0 0 0 100px;
+                    color: #FFF;
+                    font-family: 'Montserrat';
+                    font-size: 12px; font-weight: 300;
+                }
+                .circle{
+                    margin: 0 0 0 150px;
+                    width: 46.444px; height: 22px; flex-shrink: 0;
+                }
+            }
+        }
     }
 
     .navbar{
