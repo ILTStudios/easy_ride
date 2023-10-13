@@ -12,10 +12,9 @@ export class ExplorePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.web_socket.receiveMessage().subscribe((message) => {
+      console.log('Received data in Angular:', message);
       this.data = message;
     });
-
-    console.log(this.data);
 
     this.sendmessage();
   }

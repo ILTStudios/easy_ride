@@ -39,7 +39,6 @@ async function run() {
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
     
     users = await client.db().collection('users').find().toArray();
-    console.log(users);
 
   } finally {
     // Ensures that the client will close when you finish/error
@@ -60,7 +59,9 @@ async function insert_doc(document){
 async function get_data(){
   try{
     await client.connect();
-    return await client.db().collection('users').find().toArray();
+    user_data = await client.db().collection('users').find({}).toArray();
+    console.log(user_data);
+    return user_data
   }finally{
     await client.close();
   }
@@ -130,9 +131,25 @@ wss.on('connection', (ws) => {
     }
   });
 
-  users = get_data();
+  async function beans (){
+    try{
+      await client.connect();
+      user_data = await client.db().collection('users').find({}).toArray();
+      console.log(user_data);
+      ws.send(JSON.stringify(user_data));
+      return user_data
+    }finally{
+      await client.close();
+    }
+  }
 
-  ws.send(JSON.stringify(users));
+  beans();
+
+  // users = async get_data();
+  // console.log('hehe uwuw')
+  // console.log(users);
+
+  // ws.send(JSON.stringify({beans: 'beans', penis: 'penis'}));
 });
 
 server.listen(3000, () => {
