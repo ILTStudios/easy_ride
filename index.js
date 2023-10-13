@@ -1,28 +1,21 @@
 //express server
 const express = require('express');
-const express_app = express();
+const app = express();
 const path = require('path');
 const body_parser = require('body-parser');
 const cors = require('cors');
 
 //set express settings
-express_app.use(express.urlencoded({
+app.use(express.urlencoded({
     extended: true,
 }));
-express_app.set('port', 4000);
-express_app.get('port');
-express_app.use(body_parser.json());
-express_app.use(body_parser.urlencoded({
+app.set('port', 4000);
+app.use(body_parser.json());
+app.use(body_parser.urlencoded({
     extended: true,
 }));
-express_app.use(express.static(__dirname + '/src/app'));
-express_app.use(express.urlencoded({
-  extended: true,
-}));
-express_app.use(cors({origin: ['http://localhost:4200', 'http://localhost:4000']}))
-
-
-express_app.listen(4000, () => {
+app.use(cors({origin: ['http://localhost:4200', 'http://localhost:4000']}))
+app.listen(4000, () => {
     console.log("Server is Listening to Port: 4000");
 });
 
@@ -64,11 +57,24 @@ async function insert_doc(document){
   }
 }
 
-express_app.get('/', function(req, res) {
-  console.log('');
+async function get_data(){
+  try{
+    await client.connect();
+    return await client.db().collection('users').find().toArray();
+  }finally{
+    await client.close();
+  }
+}
+
+app.get('/', function(req, res) {
+  rando_data = {
+    beans: 'beans',
+    penis: 'duck',
+  };
+  res.json(rando_data);
 });
 
-express_app.post('/signin', function (req, res) {
+app.post('/signin', function (req, res) {
   var user_name = req.body.username;
   var e_mail = req.body.email;
   var pass_word = req.body.password;
@@ -87,7 +93,7 @@ express_app.post('/signin', function (req, res) {
   res.redirect('http://localhost:4200/explore');
 });
 
-express_app.post('/login', function (req, res) {
+app.post('/login', function (req, res) {
   var email = req.body.email;
   var pass = req.body.password;
   var authorized = false;
@@ -104,4 +110,31 @@ express_app.post('/login', function (req, res) {
     console.log('entry denied');
     res.redirect('http://localhost:4200/login');
   }
+});
+
+
+//websocket
+const http = require('http');
+const WebSocket = require('ws');
+
+const server = http.createServer(app);
+const wss = new WebSocket.Server({server});
+
+wss.on('connection', (ws) => {
+  ws.on('message', (message) => {
+    try {
+      const data = JSON.parse(message); // Attempt to parse JSON data
+      console.log('Received:', data);
+    } catch (error) {
+      console.error('Invalid JSON data:', message);
+    }
+  });
+
+  users = get_data();
+
+  ws.send(JSON.stringify(users));
+});
+
+server.listen(3000, () => {
+  console.log('Web Socket is Listening on Port:3000');
 });

@@ -17,8 +17,6 @@ export class LogInComponent {
   }
 
   ngOnInit(){
-    this.api.api_call().subscribe((data) => {
-      console.log(data);
-    });
+
   }
 }
